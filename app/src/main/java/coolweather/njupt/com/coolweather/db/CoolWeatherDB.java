@@ -61,7 +61,7 @@ public class CoolWeatherDB {
     /*
     *从数据库中读取全国的省份信息
      */
-    public List<Province> loadProvince(){
+    public List<Province> loadProvinces(){
         List<Province> list = new ArrayList<Province>();
         Cursor cursor = db.query("Province", null, null, null, null, null, null);
         if(cursor.moveToFirst()){
@@ -95,7 +95,7 @@ public class CoolWeatherDB {
     /*
     *从数据库中读取全国的省份信息
      */
-    public List<City> loadCity(int provinceId){
+    public List<City> loadCities(int provinceId){
         List<City> list = new ArrayList<City>();
         Cursor cursor = db.query("City", null, "province_id = ?", new String[] {String.valueOf(provinceId)}, null, null, null);
         if(cursor.moveToFirst()){
@@ -130,7 +130,7 @@ public class CoolWeatherDB {
     /*
     *从数据库中读取全国的省份信息
      */
-    public List<County> loadCounty(int cityId){
+    public List<County> loadCounties(int cityId){
         List<County> list = new ArrayList<County>();
         Cursor cursor = db.query("County", null, "city_id = ?", new String[] {String.valueOf(cityId)}, null, null, null);
         if(cursor.moveToFirst()){

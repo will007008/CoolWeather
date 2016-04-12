@@ -17,13 +17,13 @@ public class HttpUtil {
             public void run() {
                 HttpURLConnection connection = null;    //创建连接
                 try{
-                    URL url = new URL(address);
-                    connection  = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("GET"); //Get方法
+                    URL url = new URL(address); //URL对象
+                    connection  = (HttpURLConnection) url.openConnection(); //使用URL打开一个链接
+                    connection.setRequestMethod("GET"); //使用Get请求
                     connection.setConnectTimeout(8000); //8s
                     connection.setReadTimeout(8000);
                     //输入流
-                    InputStream inputStream = connection.getInputStream();
+                    InputStream inputStream = connection.getInputStream();  //获取输入流，此时才真正建立链接
                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                     StringBuilder response = new StringBuilder();
                     String line;
