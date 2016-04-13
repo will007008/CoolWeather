@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import coolweather.njupt.com.coolweather.R;
+import coolweather.njupt.com.coolweather.service.AutoUpdateService;
 import coolweather.njupt.com.coolweather.util.HttpCallbackListener;
 import coolweather.njupt.com.coolweather.util.HttpUtil;
 import coolweather.njupt.com.coolweather.util.Utility;
@@ -135,6 +136,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     @Override
