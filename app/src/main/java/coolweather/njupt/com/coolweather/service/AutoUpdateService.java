@@ -33,7 +33,7 @@ public class AutoUpdateService extends Service {
         }).start();
         //创建定时任务
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 8*60*60*1000;  // 8小时
+        int anHour = 8*60*60*1000;  // 8小时，以ms为单位的
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this, AutoUpdateService.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
